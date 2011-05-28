@@ -37,7 +37,7 @@ In your application delegate implementation file, you should include the AppData
     @implementation MyAppDelegate
     
     -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-      // Setup Connection to Databse
+      // Setup Connection to the database
       self.database = [[[AppDatabase alloc] initWithMigrations] autorelease];
     }
     
@@ -104,7 +104,7 @@ To later on retrieve that Friend object from the database:
       Friend *normanRockwell = [records objectAtIndex:0];
     }
     
-_Note that `findByColumn` returns an `NSArray` object always_
+_Note that `findByColumn` always returns an `NSArray` object._
 
 ## Support
 
@@ -112,4 +112,8 @@ Please use the [GitHub Issues tracker](https://github.com/cpjolicoeur/mojo-datab
 
 ## Contributions
 
-If you wish to contribute to Mojo Database, please fork the project and send pull requests.g
+If you wish to contribute to Mojo Database, please fork the project and send pull requests.
+
+## Credits
+
+Mojo Database is based largely on Dylan Bruzenak's code from the _iPhone Advanced Projects_ book, published by Apress, and was modified and extended by [Craig P Jolicoeur](http://github.com/cpjolicoeur).
