@@ -9,6 +9,7 @@
 #import "AppDatabase.h"
 #import "Config.h"
 
+NSString *const kDatabaseName = @"MojoDatabase.sqlite3";
 
 @interface AppDatabase(PrivateMethods)
 -(void)runMigrations;
