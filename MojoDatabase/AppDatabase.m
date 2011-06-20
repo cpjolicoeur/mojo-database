@@ -14,6 +14,7 @@ NSString *const kDatabaseName = @"MojoDatabase.sqlite3";
 @interface AppDatabase(PrivateMethods)
 -(void)runMigrations;
 -(NSUInteger)databaseVersion;
+-(void)setDatabaseVersion:(NSUInteger)newVersionNumber;
 
 // Migration steps - v1
 -(void)createApplicationPropertiesTable;
