@@ -27,10 +27,20 @@ NSString *const kDatabaseName = @"MojoDatabase.sqlite3";
 @implementation AppDatabase
 
 -(id)initWithMigrations {
-	if ((self = [super initWithFileName:kDatabaseName])) {
-		[self runMigrations];
-		[MojoModel setDatabase:self];
-	}
+	self = [self initWithMigrations:NO];
+	if (!self) { return nil; }
+	
+	return self;
+}
+
+-(id)initWithMigrations:(BOOL)loggingEnabled {
+	self = [super initWithFileName:kDatabaseName];
+	if (!self) { return nil; }
+
+	[self setLogging:loggingEnabled];
+	[self runMigrations];
+	[MojoModel setDatabase:self];
+
 	return self;
 }
 

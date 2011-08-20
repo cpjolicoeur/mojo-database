@@ -13,5 +13,6 @@
 }
 
 -(id)initWithMigrations;
+-(id)initWithMigrations:(BOOL)loggingEnabled;
 
 @end
