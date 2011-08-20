@@ -96,6 +96,8 @@ static NSMutableDictionary *tableCache = nil;
 	} else {
 		[self update];
 	}
+	
+	[self afterSave];
 }
 
 -(void)insert {
@@ -199,6 +201,7 @@ static NSMutableDictionary *tableCache = nil;
  */
 
 -(void)beforeSave {}
+-(void)afterSave {}
 -(void)beforeDelete {}
 
 

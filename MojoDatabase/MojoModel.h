@@ -22,6 +22,7 @@
 +(MojoDatabase *)database;
 -(void)save;
 -(void)beforeSave;
+-(void)afterSave;
 -(void)delete;
 -(void)beforeDelete;
 +(NSArray *)findWithSql:(NSString *)sql withParameters:(NSArray *)parameters;
