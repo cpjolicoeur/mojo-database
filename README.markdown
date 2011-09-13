@@ -65,8 +65,6 @@ you would also have an Objective-C class called `Friend` that inherited from `Mo
     #import "MojoModel.h"
 
     @interface Friend : MojoMdel {
-      NSString *name;
-      NSNumber *age;
     }
 
     @property (nonatomic, retain) NSString *name;
@@ -80,11 +78,12 @@ with the following basic `Friend.m` implementation file:
 
     @implementation Friend
 
-    @synthesize name, age;
+    @synthesize name=_name;
+    @synthesize age=_age;
 
     -(void)dealloc {
-      [name release], name=nil;
-      [age release], age=nil;
+      [_name release], _name=nil;
+      [_age release], _age=nil;
       [super dealloc];
     }
 
