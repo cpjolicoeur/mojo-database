@@ -7,7 +7,6 @@
 //
 
 #import "AppDatabase.h"
-#import "Config.h"
 
 NSString *const kDatabaseName = @"MojoDatabase.sqlite3";
 
