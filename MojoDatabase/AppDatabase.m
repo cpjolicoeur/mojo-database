@@ -18,6 +18,7 @@ NSString *const kDatabaseName = @"MojoDatabase.sqlite3";
 // Migration steps - v1
 -(void)createApplicationPropertiesTable;
 
+
 // Migration steps - v2 .. vN
 @end
 
@@ -26,13 +27,16 @@ NSString *const kDatabaseName = @"MojoDatabase.sqlite3";
 @implementation AppDatabase
 
 -(id)initWithMigrations {
-	self = [self initWithMigrations:NO];
+    NSLog(@"MIG %d", 6);
+	self = [self initWithMigrations:TRUE];
+    NSLog(@"MIG %d", 7);
 	if (!self) { return nil; }
-	
+	NSLog(@"MIG %d", 8);
 	return self;
 }
 
 -(id)initWithMigrations:(BOOL)loggingEnabled {
+    NSLog(@"Database Name = %s", kDatabaseName.lowercaseString);
 	self = [super initWithFileName:kDatabaseName];
 	if (!self) { return nil; }
 
@@ -53,10 +57,14 @@ NSString *const kDatabaseName = @"MojoDatabase.sqlite3";
 	
 	if (![tableNames containsObject:@"ApplicationProperties"]) {
 		[self createApplicationPropertiesTable];
-	}
+	
+    }
+    
     
 	if ([self databaseVersion] < 2) {
 		// Migrations for database version 1 will run here
+        
+        
   	[self setDatabaseVersion:2];
 	}
 	
@@ -109,5 +117,6 @@ NSString *const kDatabaseName = @"MojoDatabase.sqlite3";
 -(NSUInteger)databaseVersion {
 	return [[self getApplicationProperty:@"databaseVersion"] unsignedIntegerValue];
 }
+
 
 @end
