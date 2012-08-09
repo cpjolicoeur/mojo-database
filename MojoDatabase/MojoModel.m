@@ -26,8 +26,7 @@ static NSMutableDictionary *tableCache = nil;
 #pragma mark - Class Methods - DB Handling
 
 +(void)setDatabase:(MojoDatabase *)newDatabase {
-  [database autorelease];
-  database = [newDatabase retain];
+  database = newDatabase;
 }
 
 +(MojoDatabase *)database {
@@ -49,7 +48,7 @@ static NSMutableDictionary *tableCache = nil;
 
 -(NSArray *)columns {
   if (tableCache == nil) {
-    tableCache = [[NSMutableDictionary dictionary] retain];
+    tableCache = [NSMutableDictionary dictionary];
   }
 
   NSString *tableName = [[self class] tableName];

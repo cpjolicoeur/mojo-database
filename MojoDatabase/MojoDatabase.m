@@ -82,7 +82,6 @@
       id row = [[rowClass alloc] init];
       [self copyValuesFromStatement:statement toRow:row queryInfo:queryInfo columnTypes:columnTypes columnNames:columnNames];
       [rows addObject:row];
-      [row release];
     }
   } else {
     sqlite3_finalize(statement);
@@ -290,8 +289,6 @@
 
 -(void)dealloc {
   [self close];
-  [pathToDatabase release];
-  [super dealloc];
 }
 
 @end
